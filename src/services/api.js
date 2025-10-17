@@ -60,5 +60,10 @@ export const getProfile = async () => {
   return response.data;
 };
 
-export default api;
+// NOVA FUNÇÃO ADICIONADA
+export const getMyStudyPlans = async () => {
+  const response = await api.get('/my-study-plans');
+  return response.data;
+};
 
+export default api;

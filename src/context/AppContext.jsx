@@ -31,6 +31,7 @@ export const ACTIONS = {
   LOGIN_SUCCESS: 'LOGIN_SUCCESS',
   LOGOUT: 'LOGOUT',
   SET_USER: 'SET_USER',
+  SET_ALL_STUDY_PLANS: 'SET_ALL_STUDY_PLANS', // AÇÃO ADICIONADA
 };
 
 // Reducer
@@ -83,6 +84,11 @@ const appReducer = (state, action) => {
       };
     case ACTIONS.SET_USER:
       return { ...state, user: action.payload };
+    
+    // NOVO CASE ADICIONADO
+    case ACTIONS.SET_ALL_STUDY_PLANS:
+      return { ...state, studyPlans: action.payload, loading: false };
+
     default:
       return state;
   }
@@ -110,4 +116,3 @@ export const useApp = () => {
   }
   return context;
 };
-
