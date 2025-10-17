@@ -75,6 +75,81 @@ const StudyPlan = () => {
 
         {/* ... Tópicos e outros cards ... */}
 
+        {/* Tópicos Principais */}
+        <Card className="mb-6">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <Target className="h-5 w-5" />
+              Tópicos Principais
+            </CardTitle>
+            <CardDescription>Principais assuntos abordados neste material</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              {plan.topics?.map((topic, index) => (
+                <div 
+                  key={index} 
+                  className="p-3 bg-blue-50 rounded-lg border border-blue-100"
+                >
+                  <div className="flex items-start gap-3">
+                    <div className="flex-shrink-0 w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center text-white text-xs font-bold">
+                      {index + 1}
+                    </div>
+                    <p className="text-gray-900">{topic}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Conceitos-Chave */}
+        <Card className="mb-6">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <Brain className="h-5 w-5" />
+              Conceitos-Chave
+            </CardTitle>
+            <CardDescription>Conceitos fundamentais para dominar este conteúdo</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="flex flex-wrap gap-2">
+              {plan.key_concepts?.map((concept, index) => (
+                <span 
+                  key={index}
+                  className="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm font-medium"
+                >
+                  {concept}
+                </span>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Cronograma de Estudos */}
+        <Card className="mb-6">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <Calendar className="h-5 w-5" />
+              Cronograma de Estudos
+            </CardTitle>
+            <CardDescription>Planejamento sugerido para seus estudos</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="space-y-4">
+              {plan.study_schedule && Object.entries(plan.study_schedule).map(([period, activities], index) => (
+                <div 
+                  key={index} 
+                  className="p-4 border rounded-lg hover:shadow-md transition-shadow"
+                >
+                  <h3 className="font-semibold text-gray-900 mb-2">{period}</h3>
+                  <p className="text-gray-700">{activities}</p>
+                </div>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
+
         <Card className="mb-6">
           <CardHeader>
             <CardTitle>Questionários Disponíveis</CardTitle>
